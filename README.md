@@ -40,4 +40,11 @@
 *  Reset the new **Last Transform** by setting it to the newest value.
 *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint.
 *  Add empty actor above **BP_Camera** so you can readjust 0,0,0 in world and call it **Camera Origin**.
-*  
+*  Add a **Take Recorder** and add **Cin Camera** to the recorder.
+*  Add a plugin called **Edit | Plugins | Time Data Monitor** to the project and reboot Unreal.
+*  Select **Window | Developer | Time Data Monitor**.  Add a time correction (in our case it was `.0125`.
+*  Add a new **Create new Comp** in **Composure Compositing** and name it.
+*  Add a **Layer Element** of **Media** type and call it **Live Camera**.
+*  In Live Camera Input Meida Source and add the Media Texture of the camera. 
+*  Add keys to chroma out the background.
+*   
