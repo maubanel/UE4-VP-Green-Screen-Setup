@@ -1,12 +1,16 @@
 # UE4-VP-Green-Screen-Setup
-
-* Connect camera and black magic a valid sync signal
-* Create a new blank film project
-* [Black Magic Quick Start](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
-* Add a **Media  | Media Bundle** to a folder called `MB_LiveCamera`.
-* Open media bundle and assigned **Media Source** a `Black Magic Media Source` and `1080 Progressive 23.976`.  
-* Set timecode to `LTC`.
-* Set **Reopen Source on Error** to `true` as the black magic does lose track of hte camera
+1.  Equipment
+      * Unreal Engine 4.26
+      * RED Scarlet Camera with 23.976 ouptut to through the BNC
+      * Aja Sync going to Camera and Black Magic Card
+      * Black Magic Ultra Studio 4K Mini with Thunderbolt
+2.  Connect camera and black magic a valid sync signal
+3.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
+4. [Black Magic Setup Per Unreal Documentation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
+      * Add a **Media  | Media Bundle** to a folder called `MB_LiveCamera`.
+      * Open media bundle and assigned **Media Source** a `Black Magic Media Source` and `1080 Progressive 23.976`.  
+      * Set timecode to `LTC`.
+      * Set **Reopen Source on Error** to `true` as the black magic does lose track of hte camera
 * Turn on the RED Camera
 * On RED **Medu | Settings | Display | Monitor Control** change **LCD** to `HDSDI`.  This sends the output of the camera through the BNC cable
 * On the **Media Bundle**, select **Request Play Media**.
