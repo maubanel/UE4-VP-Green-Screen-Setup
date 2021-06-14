@@ -37,4 +37,5 @@
 * Drag a **Last Transform** to the graph and add a **LERP** node.
 * Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
 * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
+*  Reset the new **Last Transform** by setting it to the newest value.
 *  
