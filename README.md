@@ -47,4 +47,9 @@
 *  Add a **Layer Element** of **Media** type and call it **Live Camera**.
 *  In Live Camera Input Meida Source and add the Media Texture of the camera. 
 *  Add keys to chroma out the background.
-*   
+*  Add comp layer for **Add New Layer Element** a **CG Layer** called `Background Element`.
+*  Create a **Materials** folder.  Add a new **Material** called `M_Composite`.
+*  Go to **Material Domain** and change it to `Post Process`.
+*  Right click and two **Texture Sample Parameter 2D**.  Call them the same as the elements `LiveCamera` and `BackgroundElement`.
+*  Add an **Over** node and plub int the **RGBA** pins to it with the background on the bottom. Connect the output of the **Over** to the **Emissive Color** pin.
+*  Press **Apply**. Assign the materail to an added transform compositing pass.
