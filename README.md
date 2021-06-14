@@ -4,6 +4,7 @@
       * RED Scarlet Camera with 23.976 ouptut to through the BNC
       * Aja Sync going to Camera and Black Magic Card
       * Black Magic Ultra Studio 4K Mini with Thunderbolt
+      * First Generation Vive Lighthouses with Second Generation Vive Tracker
 2.  Connect camera and black magic a valid sync signal
 3.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
 4. [Black Magic Setup Per Unreal Documentation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
