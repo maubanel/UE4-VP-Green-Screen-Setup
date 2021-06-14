@@ -10,7 +10,7 @@
 * Turn on the RED Camera
 * On RED **Medu | Settings | Display | Monitor Control** change **LCD** to `HDSDI`.  This sends the output of the camera through the BNC cable
 * On the **Media Bundle**, select **Request Play Media**.
-* [Time Code and Genlock(https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/TimecodeGenlock/)
+* [Time Code and Genlock](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/TimecodeGenlock/)
 * Make sure you have **WIndows | Developer Tools | Timecode Privder** selected and mount in top right
 * Create a new blueprint in **Content | Blueprints**. Select a **All Classes | BlackMagicTimecodeProvider**.  Call it `BP_BlackMagicTCProvider`. Select the corresponding black magic card in **Media Configuration** as well as **LTC**timecode.
 * Create a new blueprint in **Content | Blueprints**. Select a **All Classes | BlackMagicCustomTimestep**.  Call it `BP_BlackMagicGenlock`.  Select the corresponding black magic card in **Media Configuration**.
