@@ -19,4 +19,22 @@
 * Close editor and restart the project
 * Go to [Live Link Documentation](https://docs.unrealengine.com/4.26/en-US/AnimatingObjects/SkeletalMeshAnimation/LiveLinkPlugin/Livelinkxr/)
 * Add Live Link XR Plugin: **Edit | PLugins | Live Link XR**.
-* 
+* Add **Windows | Live Link** tool.
+* Make sure Steam VR is running and turn on tracker on camera
+* Press **+ Srouce** and make sure **Track Trackers** is selected and others are not and set the **Framerate** to `90`.
+* Make sure it adds a Steam VR tracker to the **Subject Name** window.  If not restart unreal with steam trackers on.
+* Add new **Actor Blueprint** called `BP_Camera`.
+* Add a **Live Link Controller** component.
+* Select **Subject Representation** and select the Steam VR tracker.
+* Underneath **Role Controller | Live Link** untick **World Transform**.
+* Add two **Arrow Components**.  Call one **Tracker** and the other **Camera**. Put Camera under tracker.  Change color of camera arrow to blue.
+* Add an offset for the camera arrow.  The **Z** offset on our rig was `-33.02cm`.  The **X** offset at **-2.54cm**. This is based on how far the center of the tracker is to teh center of the sensor on the film camera
+* Go to the **Event Graph** and a **Live Link | On Live LInk Update +**.  This adds a live link update in the blueprint.
+* Add a **Variable** called **Smoothing** and as a **Float**. Make it public. Make the default `15.0`.
+* Add a **Variable** called **CineCamera** of type **Cine Camera Actor | Object Reference**. Make it public.
+* Add a **Variable** called **Last Transform** of type **Transform**. Make it private.
+* Drag a **Camera** to Blueprint and add a **Get World Transform** node.
+* Drag a **Last Transform** to the graph and add a **LERP** node.
+* Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
+* Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
+*  
