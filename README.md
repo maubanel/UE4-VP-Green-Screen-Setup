@@ -38,4 +38,6 @@
 * Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
 * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
 *  Reset the new **Last Transform** by setting it to the newest value.
+*  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint.
+*  Add empty actor above **BP_Camera** so you can readjust 0,0,0 in world and call it **Camera Origin**.
 *  
