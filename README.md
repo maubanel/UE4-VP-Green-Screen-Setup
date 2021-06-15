@@ -13,7 +13,7 @@
      * Set timecode to `LTC`.
      * Set **Reopen Source on Error** to `true` as the black magic does lose track of hte camera
      * Turn on the RED Camera
-     * On RED **Medu | Settings | Display | Monitor Control** change **LCD** to `HDSDI`.  This sends the output of the camera through the BNC cable
+     * On the RED camera press **Medu | Settings | Display | Monitor Control** change **LCD** to `HDSDI`.  This sends the output of the camera through the BNC cable
      * On the **Media Bundle**, select **Request Play Media**.
 
 5. [Time Code and Genlock Setup Per Unreal Documtation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/TimecodeGenlock/)
@@ -65,8 +65,35 @@
      *  Press **Apply**. Assign the materail to an added transform compositing pass.
 
 10. Garbage Matte Setup
+     * Create a new Actor Blueprint called `BP_GreenScreen`.
+     * Add plane call it `Wall`.
+     * Place the blueprint in the level
+     * Rotate it to be perpendicular to the camera and in front of it
+     * Add a **CG Matte** layer to composure and call it `GarbageMatte`.
+     * Open up **M_Composite** and add a **exture Sample Parameter 2D** and call it `GarbageMatte`.
+     * Plug int the RGBA output into the Matte input in the **Over** node.
+     * Create a new layer and add actors to new layer and call it `GarbageMatteLayer`.
+     * Go to **Garbage Matte** in composure and add a **Capture Actors | Actor Set** and select the `GarbageMatte Layer`.
+     * Connect the camera source to override and select **Target Actor Camera**.
+     * Open up **Background Element**.  Open up **Capture Actors**, select **Exclude** and select **Garbage Matte Layer**.
+     * Scale garbage matte to fit space
+     * Add floor plane to blueprint and adjust size to match the blue/green screen floor
+     * Get scale correct in game, then copy values into the blueprint so it can be reused in other maps/levels.
+     * 
 
 11.  Output to external Black Magic
+     * Connect the output of the **Black Magic** capture card used with Unreal to another **Black Magic** capture card on a second computer.
+     * Add a **Media | Blackmagic Media Output** to the **Black Magic** folder.
+     * Double click and selectg the black magic card that is used for unreal at the proper framerate, resolution and timecode.
+     * Open up the composite and change the **Output** to `Compositing Media Capture Output`.  Press **+** to add output if needed.
+     * Select the **Capture Output** to **Black Magic Media Output**.
+     * You will need to convert the image from Linear Color Space to SRGB.
+     * Got to [Open Color IO](https://opencolorio.org) and download the **Sample OCIO Configurations** zip file.
+     * Go to the composite **Output | Color Conversions**.  Lets change it to `Compositing Open Color IOPass`.
+     * Open up **Color Conversion Seettings** and create a new **OpenIO Color Configuration** file and call it `LinearToSRGB`
+     * Then press save.  Double click and browse to the downloaded folder and open the **config.ocio** file.
+     * Add two **Desired Color FSpaces**.  First is **Linear** and second is **sRGB**.
+     * Change **Source Color Space** to **Linear** and change **Destination Color Space** to **sRGB**.
 
 ### Topology
 ```
@@ -74,7 +101,10 @@
                                 │                    │
                                 │                    │
                                 │                    │
-                                │       Red Scarlett │
+                                │       
+                                
+                                
+                                Scarlett │
                                 │                    │
                                 │                    │
                                 │                    │
