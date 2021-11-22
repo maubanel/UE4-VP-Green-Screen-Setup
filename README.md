@@ -10,23 +10,16 @@
 2.  Connect camera and black magic a valid sync signal
 3.  Make sure Notch is runnign on the green screen TV
 4.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
-5. [Black Magic Setup Per Unreal Documentation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
-     * Add a **Media  | Media Bundle** to a folder called `MB_LiveCamera`.
-     * Open media bundle and assigned **Media Source** a `Black Magic Media Source` and `1080 Progressive 23.976`.  
-     * Set timecode to `LTC`.
-     * Set **Reopen Source on Error** to `true` as the black magic does lose track of hte camera
-     * Turn on the RED Camera
-     * On the RED camera press **Medu | Settings | Display | Monitor Control** change **LCD** to `HDSDI`.  This sends the output of the camera through the BNC cable
-     * On the **Media Bundle**, select **Request Play Media**.
+5. TBD Sync the video card in Unreal with sync
 
-5. [Time Code and Genlock Setup Per Unreal Documtation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/TimecodeGenlock/)
+6. [Time Code and Genlock Setup Per Unreal Documtation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/TimecodeGenlock/)
      * Make sure you have **Windows | Developer Tools | Timecode Privder** selected and mount in top right
      * Create a new blueprint in **Content | Blueprints**. Select a **All Classes | BlackMagicTimecodeProvider**.  Call it `BP_BlackMagicTCProvider`. Select the corresponding black magic card in **Media Configuration** as well as **LTC**timecode.
      * Create a new blueprint in **Content | Blueprints**. Select a **All Classes | BlackMagicCustomTimestep**.  Call it `BP_BlackMagicGenlock`.  Select the corresponding black magic card in **Media Configuration**.
      * Go to **Edit | Project Settings | Engine | General Settings | Timecode Provider** and select **BP_BlackMagicTCProvider**.
      * Go to **Edit | Project Settings | Engine | General Settings | Custom Timestep** and select **BP_BlackMagicGenlock**.
      * Close editor and restart the project
-6. [Setup Vive using Live Link UE4 Documentation](https://docs.unrealengine.com/4.26/en-US/AnimatingObjects/SkeletalMeshAnimation/LiveLinkPlugin/Livelinkxr/)
+7. [Setup Vive using Live Link UE4 Documentation](https://docs.unrealengine.com/4.26/en-US/AnimatingObjects/SkeletalMeshAnimation/LiveLinkPlugin/Livelinkxr/)
      * Connect Vive to PC
      * Calibrate vive track with Vive VR
      * Add Live Link XR Plugin: **Edit | PLugins | Live Link XR**.
@@ -36,7 +29,7 @@
      * Press the <kbd>Add</kbd> button.
      * Make sure it adds a Steam VR tracker to the **Subject Name** window.  If not restart unreal with steam trackers on.
     
-7. [Create a Blueprint to Make Camera Follow Tracker with Smoothing](https://www.youtube.com/watch?v=jx8cxoW5vnc&t=96s)
+8. [Create a Blueprint to Make Camera Follow Tracker with Smoothing](https://www.youtube.com/watch?v=jx8cxoW5vnc&t=96s)
      * Add new **Actor Blueprint** called `BP_Camera`.
      * Add a **Live Link Controller** component.
      * Select **Subject Representation** and select the Steam VR tracker.
@@ -52,43 +45,15 @@
      * Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
      * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
      *  Reset the new **Last Transform** by setting it to the newest value.
-8. Add Camera and Blueprint to game to control virutal camera with RED cam.
+9. Add Camera and Blueprint to game to control virutal camera with RED cam.
      *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint in the **World Outliner** in the level you are workign in.
      *  Adjust **CineCamera Actor | Current Camera Settings | Filmback | Sensor Width** to `27.7 mm` and **Sensor Height** to `14.6 mm`.  Also set the aperture and focal length manually. 
      *  Add empty actor above **BP_Camera** so you can readjust 0,0,0 in world and call it **Camera Origin**.
      *  Add a **Take Recorder** and add **Cin Camera** to the recorder.
      *  Add a plugin called **Edit | Plugins | Time Data Monitor** to the project and reboot Unreal.
      *  Select **Window | Developer | Time Data Monitor**.  Add a time correction (in our case it was `.0125`.
-9. Create new Composure Composite
-     *  Add a new **Create new Comp** in **Composure Compositing** and name it.
-     *  Add a **Layer Element** of **Media** type and call it **Live Camera**.
-     *  In Live Camera Input Meida Source and add the Media Texture of the camera. 
-     *  Add keys to chroma out the background.
-     *  Add comp layer for **Add New Layer Element** a **CG Layer** called `Background Element`.
-     *  Create a **Materials** folder.  Add a new **Material** called `M_Composite`.
-     *  Go to **Material Domain** and change it to `Post Process`.
-     *  Right click and two **Texture Sample Parameter 2D**.  Call them the same as the elements `LiveCamera` and `BackgroundElement`.
-     *  Add an **Over** node and plub int the **RGBA** pins to it with the background on the bottom. Connect the output of the **Over** to the **Emissive Color** pin.
-     *  Press **Apply**. Assign the materail to an added transform compositing pass.
 
-10. Garbage Matte Setup
-     * Create a new Actor Blueprint called `BP_GreenScreen`.
-     * Add plane call it `Wall`.
-     * Place the blueprint in the level
-     * Rotate it to be perpendicular to the camera and in front of it
-     * Add a **CG Matte** layer to composure and call it `GarbageMatte`.
-     * Open up **M_Composite** and add a **exture Sample Parameter 2D** and call it `GarbageMatte`.
-     * Plug int the RGBA output into the Matte input in the **Over** node.
-     * Create a new layer and add actors to new layer and call it `GarbageMatteLayer`.
-     * Go to **Garbage Matte** in composure and add a **Capture Actors | Actor Set** and select the `GarbageMatte Layer`.
-     * Connect the camera source to override and select **Target Actor Camera**.
-     * Open up **Background Element**.  Open up **Capture Actors**, select **Exclude** and select **Garbage Matte Layer**.
-     * Scale garbage matte to fit space
-     * Add floor plane to blueprint and adjust size to match the blue/green screen floor
-     * Get scale correct in game, then copy values into the blueprint so it can be reused in other maps/levels.
-     * 
-
-11.  Output to external Black Magic
+10.  Output to external Black Magic
      * Connect the output of the **Black Magic** capture card used with Unreal to another **Black Magic** capture card on a second computer.
      * Add a **Media | Blackmagic Media Output** to the **Black Magic** folder.
      * Double click and selectg the black magic card that is used for unreal at the proper framerate, resolution and timecode.
@@ -101,6 +66,8 @@
      * Then press save.  Double click and browse to the downloaded folder and open the **config.ocio** file.
      * Add two **Desired Color FSpaces**.  First is **Linear** and second is **sRGB**.
      * Change **Source Color Space** to **Linear** and change **Destination Color Space** to **sRGB**.
+
+
 
 ### Topology
 ```
