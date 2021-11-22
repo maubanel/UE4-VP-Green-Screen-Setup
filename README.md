@@ -50,7 +50,7 @@
      * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
      *  Reset the new **Last Transform** by setting it to the newest value.
 8. Add Camera and Blueprint to game to control virutal camera with RED cam.
-     *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint.
+     *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint in the **World Outliner** in the level you are workign in.
      *  Adjust **CineCamera Actor | Current Camera Settings | Filmback | Sensor Width** to `27.7 mm` and **Sensor Height** to `14.6 mm`.  Also set the aperture and focal length manually. 
      *  Add empty actor above **BP_Camera** so you can readjust 0,0,0 in world and call it **Camera Origin**.
      *  Add a **Take Recorder** and add **Cin Camera** to the recorder.
