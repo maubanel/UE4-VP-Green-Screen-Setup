@@ -2,13 +2,15 @@
 1.  Equipment
       * Unreal Engine 4.26
       * RED Scarlet Camera with 23.976 ouptut to through the BNC
+      * Notch for keying
       * Aja Sync going to Camera and Black Magic Card
       * Black Magic Ultra Studio 4K Mini with Thunderbolt
       * First Generation Vive Lighthouses with Second Generation Vive Tracker
       * One Unreal unit is in cm
 2.  Connect camera and black magic a valid sync signal
-3.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
-4. [Black Magic Setup Per Unreal Documentation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
+3.  Make sure Notch is runnign on the green screen TV
+4.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
+5. [Black Magic Setup Per Unreal Documentation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
      * Add a **Media  | Media Bundle** to a folder called `MB_LiveCamera`.
      * Open media bundle and assigned **Media Source** a `Black Magic Media Source` and `1080 Progressive 23.976`.  
      * Set timecode to `LTC`.
