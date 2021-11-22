@@ -17,7 +17,7 @@
      * Add Live Link XR Plugin: **Edit | PLugins | Live Link XR**.
      * Add **Windows | Live Link** tool.
      * Make sure Steam VR is running and turn on tracker on camera
-     * Press **+ Source** and make sure **Track Trackers** is selected and others are not and set the **Loca Update Rate** to `90`.
+     * Press **+ Source** and make sure **Track Trackers** is selected and others are not and set the **Loca Update Rate** to `90`. Sometimes the trackers come in as controllers (when one controller is on).
      * Press the <kbd>Add</kbd> button.
      * Make sure it adds a Steam VR tracker to the **Subject Name** window.  If not restart unreal with steam trackers on.
     
