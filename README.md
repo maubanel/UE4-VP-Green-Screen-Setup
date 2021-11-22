@@ -28,22 +28,20 @@
      * Underneath **Role Controller | Live Link** untick **World Transform**.
      * Add two **Arrow Components**.  Call one **Tracker** and the other **Camera**. Put Camera under tracker.  Change color of camera arrow to blue.
      * Add an offset for the camera arrow.  The **Z** offset on our rig was `-20.955cm`.  The **X** offset at `-15.54cm` and **Y** offset of `4.445`. This is based on how far the center of the tracker is to the center of the sensor on the film camera
-     * Go to the **Event Graph** and a **Live Link | On Live LInk Update +**.  This adds a live link update in the blueprint.
+     * Go to the **Event Graph** and a **Live Link | On Live LInk Update +**.  This adds a live link update in the blueprint. If you cannot find it by right clicking an entering the event select the **Live Link Component Controller** and in the **Details** panel select the **Events | On Live Updated**
      * Add a **Variable** called **Smoothing** and as a **Float**. Make it public. Make the default `15.0`.
-     * Add a **Variable** called **CineCamera** of type **Cine Camera Actor | Object Reference**. Make it public.
+     * Add a **Variable** called **CamParentRef** of type **Actor | Object Reference**. Make it public.
      * Add a **Variable** called **Last Transform** of type **Transform**. Make it private.
-     * Drag a **Camera (Arrow?)** to Blueprint and add a **Get World Transform** node.
+     * Drag a **Camera Arrow** to Blueprint and add a **Get World Transform** node.
      * Drag a **Last Transform** to the graph and add a **LERP** node.
      * Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
-     * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
+     * Grab the **Camera Parent Ref** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
      *  Reset the new **Last Transform** by setting it to the newest value.
 8. Add Camera and Blueprint to game to control virutal camera with RED cam.
-     *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint in the **World Outliner** in the level you are workign in.
-     *  Adjust **CineCamera Actor | Current Camera Settings | Filmback | Sensor Width** to `27.7 mm` and **Sensor Height** to `14.6 mm`.  Also set the aperture and focal length manually. 
+     *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene.
      *  Add empty actor above **BP_Camera** so you can readjust 0,0,0 in world and call it **Camera Origin**.
-     *  Add a **Take Recorder** and add **Cin Camera** to the recorder.
-     *  Add a plugin called **Edit | Plugins | Time Data Monitor** to the project and reboot Unreal.
-     *  Select **Window | Developer | Time Data Monitor**.  Add a time correction (in our case it was `.0125`.
+     *  Select **BP_Camera** in the **World Outliner**  and assign **Cam Parent Ref** the **Actor** that is a parent of the cinecam in the level.
+     *  Adjust **CineCamera Actor | Current Camera Settings | Filmback | Sensor Width** to `27.7 mm` and **Sensor Height** to `14.6 mm`.  Also set the aperture and focal length manually. 
 
 9.  Output to external Black Magic
      * Connect the output of the **Black Magic** capture card used with Unreal to another **Black Magic** capture card on a second computer.
