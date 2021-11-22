@@ -24,7 +24,7 @@
 7. [Create a Blueprint to Make Camera Follow Tracker with Smoothing](https://www.youtube.com/watch?v=jx8cxoW5vnc&t=96s)
      * Add new **Actor Blueprint** called `BP_Camera`.
      * Add a **Live Link Component Controller** component to the blueprint.
-     * Select **Subject Representation** and select the Steam VR tracker.
+     * While selecting the **Live Link Component Controller**, select **Subject Representation** and select the Steam VR tracker.
      * Underneath **Role Controller | Live Link** untick **World Transform**.
      * Add two **Arrow Components**.  Call one **Tracker** and the other **Camera**. Put Camera under tracker.  Change color of camera arrow to blue.
      * Add an offset for the camera arrow.  The **Z** offset on our rig was `-33.02cm`.  The **X** offset at **-2.54cm**. This is based on how far the center of the tracker is to the center of the sensor on the film camera
