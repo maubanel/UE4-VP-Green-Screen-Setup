@@ -11,15 +11,7 @@
 3.  Make sure Notch is running on the green screen compositing computer
 4.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
 5. TBD Sync the video card in Unreal with sync
-
-6. [Time Code and Genlock Setup Per Unreal Documtation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/TimecodeGenlock/)
-     * Make sure you have **Windows | Developer Tools | Timecode Privder** selected and mount in top right
-     * Create a new blueprint in **Content | Blueprints**. Select a **All Classes | BlackMagicTimecodeProvider**.  Call it `BP_BlackMagicTCProvider`. Select the corresponding black magic card in **Media Configuration** as well as **LTC**timecode.
-     * Create a new blueprint in **Content | Blueprints**. Select a **All Classes | BlackMagicCustomTimestep**.  Call it `BP_BlackMagicGenlock`.  Select the corresponding black magic card in **Media Configuration**.
-     * Go to **Edit | Project Settings | Engine | General Settings | Timecode Provider** and select **BP_BlackMagicTCProvider**.
-     * Go to **Edit | Project Settings | Engine | General Settings | Custom Timestep** and select **BP_BlackMagicGenlock**.
-     * Close editor and restart the project
-7. [Setup Vive using Live Link UE4 Documentation](https://docs.unrealengine.com/4.26/en-US/AnimatingObjects/SkeletalMeshAnimation/LiveLinkPlugin/Livelinkxr/)
+6. [Setup Vive using Live Link UE4 Documentation](https://docs.unrealengine.com/4.26/en-US/AnimatingObjects/SkeletalMeshAnimation/LiveLinkPlugin/Livelinkxr/)
      * Connect Vive to PC
      * Calibrate vive track with Vive VR
      * Add Live Link XR Plugin: **Edit | PLugins | Live Link XR**.
@@ -29,7 +21,7 @@
      * Press the <kbd>Add</kbd> button.
      * Make sure it adds a Steam VR tracker to the **Subject Name** window.  If not restart unreal with steam trackers on.
     
-8. [Create a Blueprint to Make Camera Follow Tracker with Smoothing](https://www.youtube.com/watch?v=jx8cxoW5vnc&t=96s)
+7. [Create a Blueprint to Make Camera Follow Tracker with Smoothing](https://www.youtube.com/watch?v=jx8cxoW5vnc&t=96s)
      * Add new **Actor Blueprint** called `BP_Camera`.
      * Add a **Live Link Controller** component.
      * Select **Subject Representation** and select the Steam VR tracker.
@@ -45,7 +37,7 @@
      * Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
      * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
      *  Reset the new **Last Transform** by setting it to the newest value.
-9. Add Camera and Blueprint to game to control virutal camera with RED cam.
+8. Add Camera and Blueprint to game to control virutal camera with RED cam.
      *  Drag **BP_Camera** in game.  Add a **Cine Camera** to the scene and assign it to the **BP_Camera** blueprint in the **World Outliner** in the level you are workign in.
      *  Adjust **CineCamera Actor | Current Camera Settings | Filmback | Sensor Width** to `27.7 mm` and **Sensor Height** to `14.6 mm`.  Also set the aperture and focal length manually. 
      *  Add empty actor above **BP_Camera** so you can readjust 0,0,0 in world and call it **Camera Origin**.
@@ -53,7 +45,7 @@
      *  Add a plugin called **Edit | Plugins | Time Data Monitor** to the project and reboot Unreal.
      *  Select **Window | Developer | Time Data Monitor**.  Add a time correction (in our case it was `.0125`.
 
-10.  Output to external Black Magic
+9.  Output to external Black Magic
      * Connect the output of the **Black Magic** capture card used with Unreal to another **Black Magic** capture card on a second computer.
      * Add a **Media | Blackmagic Media Output** to the **Black Magic** folder.
      * Double click and selectg the black magic card that is used for unreal at the proper framerate, resolution and timecode.
