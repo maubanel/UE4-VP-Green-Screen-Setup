@@ -29,7 +29,7 @@
      * Add Live Link XR Plugin: **Edit | PLugins | Live Link XR**.
      * Add **Windows | Live Link** tool.
      * Make sure Steam VR is running and turn on tracker on camera
-     * Press **+ Source** and make sure **Track Trackers** is selected and others are not and set the **Framerate** to `90`.
+     * Press **+ Source** and make sure **Track Trackers** is selected and others are not and set the **Loca Update Rate** to `90`.
      * Make sure it adds a Steam VR tracker to the **Subject Name** window.  If not restart unreal with steam trackers on.
 7. [Create a Blueprint to Make Camera Follow Tracker with Smoothing](https://www.youtube.com/watch?v=jx8cxoW5vnc&t=96s)
      * Add new **Actor Blueprint** called `BP_Camera`.
