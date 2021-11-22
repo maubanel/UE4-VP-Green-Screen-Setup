@@ -8,7 +8,7 @@
       * First Generation Vive Lighthouses with Second Generation Vive Tracker
       * One Unreal unit is in cm
 2.  Connect camera and black magic a valid sync signal
-3.  Make sure Notch is runnign on the green screen TV
+3.  Make sure Notch is running on the green screen compositing computer
 4.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
 5. TBD Sync the video card in Unreal with sync
 
