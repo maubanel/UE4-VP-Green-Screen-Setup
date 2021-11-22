@@ -1,6 +1,6 @@
 # UE4-VP-Green-Screen-Setup
 1.  Equipment
-      * Unreal Engine 4.26
+      * Unreal Engine 4.27
       * RED Scarlet Camera with 23.976 ouptut to through the BNC
       * Notch for keying
       * Aja Sync going to Camera and Black Magic Card
