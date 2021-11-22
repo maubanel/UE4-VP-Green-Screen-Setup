@@ -24,6 +24,8 @@
      * Go to **Edit | Project Settings | Engine | General Settings | Custom Timestep** and select **BP_BlackMagicGenlock**.
      * Close editor and restart the project
 6. [Setup Vive using Live Link UE4 Documentation](https://docs.unrealengine.com/4.26/en-US/AnimatingObjects/SkeletalMeshAnimation/LiveLinkPlugin/Livelinkxr/)
+     * Connect Vive to PC
+     * Calibrate vive track with Vive VR
      * Add Live Link XR Plugin: **Edit | PLugins | Live Link XR**.
      * Add **Windows | Live Link** tool.
      * Make sure Steam VR is running and turn on tracker on camera
