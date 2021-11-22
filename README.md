@@ -4,7 +4,7 @@
       * RED Scarlet Camera with 23.976 ouptut to through the BNC
       * Notch for keying
       * Aja Sync going to Camera and Black Magic Card
-      * Black Magic Ultra Studio 4K Mini with Thunderbolt
+      * 2 x Black Magic Ultra Studio 4K Mini with Thunderbolt
       * First Generation Vive Lighthouses with Second Generation Vive Tracker
       * One Unreal unit is in cm
 2.  Connect camera and black magic a valid sync signal
