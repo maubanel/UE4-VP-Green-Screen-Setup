@@ -5,7 +5,7 @@
       * Aja Sync going to Camera and Black Magic Card
       * Black Magic Ultra Studio 4K Mini with Thunderbolt
       * First Generation Vive Lighthouses with Second Generation Vive Tracker
-      * One unit in these film projects is 1cm
+      * One Unreal unit is in cm
 2.  Connect camera and black magic a valid sync signal
 3.  Create a new blank film project and give it an appropriate name.  This will give you the plugins you need.
 4. [Black Magic Setup Per Unreal Documentation](https://docs.unrealengine.com/4.26/en-US/WorkingWithMedia/ProVideoIO/BlackmagicQuickStart/)
