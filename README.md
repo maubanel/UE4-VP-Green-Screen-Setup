@@ -39,7 +39,7 @@
      * Select **Subject Representation** and select the Steam VR tracker.
      * Underneath **Role Controller | Live Link** untick **World Transform**.
      * Add two **Arrow Components**.  Call one **Tracker** and the other **Camera**. Put Camera under tracker.  Change color of camera arrow to blue.
-     * Add an offset for the camera arrow.  The **Z** offset on our rig was `-33.02cm`.  The **X** offset at **-2.54cm**. This is based on how far the center of the tracker is to teh center of the sensor on the film camera
+     * Add an offset for the camera arrow.  The **Z** offset on our rig was `-33.02cm`.  The **X** offset at **-2.54cm**. This is based on how far the center of the tracker is to the center of the sensor on the film camera
      * Go to the **Event Graph** and a **Live Link | On Live LInk Update +**.  This adds a live link update in the blueprint.
      * Add a **Variable** called **Smoothing** and as a **Float**. Make it public. Make the default `15.0`.
      * Add a **Variable** called **CineCamera** of type **Cine Camera Actor | Object Reference**. Make it public.
