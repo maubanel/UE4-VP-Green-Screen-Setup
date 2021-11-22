@@ -44,7 +44,7 @@
      * Add a **Variable** called **Smoothing** and as a **Float**. Make it public. Make the default `15.0`.
      * Add a **Variable** called **CineCamera** of type **Cine Camera Actor | Object Reference**. Make it public.
      * Add a **Variable** called **Last Transform** of type **Transform**. Make it private.
-     * Drag a **Camera** to Blueprint and add a **Get World Transform** node.
+     * Drag a **Camera (Arrow?)** to Blueprint and add a **Get World Transform** node.
      * Drag a **Last Transform** to the graph and add a **LERP** node.
      * Plug smoothing amount into **Multiply** node and multiply by **Delta Time** then plug into the **Alpha** of LERP and output of **Get World** to **B** side of lerp.
      * Grab the **Cine Camera** and add a **Set Actor Location and Rotation**. Add execution pin from Live Link update to Set Location and Rotation.  Connect the output of the LERP to the input of the location and rotation.
